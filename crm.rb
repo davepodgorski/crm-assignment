@@ -66,7 +66,8 @@ class CRM
   end
 
   def delete_contact
-    id = get_id
+    puts "Enter ID of contact to delete: "
+    id = gets.chomp.to_i
     contact = Contact.find(id)
     contact.delete
     puts "#{contact.first_name} #{contact.last_name} deleted."
@@ -79,6 +80,8 @@ class CRM
 
   def search_by_attribute
     puts "Select an attribute to search by: "
+    attribute_to_search = gets.chomp
+    
   end
 
 
