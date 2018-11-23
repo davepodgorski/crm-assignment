@@ -2,9 +2,6 @@ require "./contact.rb"
 
 class CRM
 
-  def initialize(name)
-    @name = name
-  end
 
   def main_menu
     while true # repeat indefinitely
@@ -48,32 +45,36 @@ class CRM
     puts "Enter a note: "
     print "> "
     note = gets.chomp
-    person = Contact.create
+    person = Contact.create(first_name, last_name, email, note)
   end
 
   def modify_existing_contact
     puts "Enter ID of contact to modify: "
     print "> "
      id = gets.chomp
-     Contact.all.each do |id|
-       if Contact.all.include? id
-        puts "Enter an attribute to modify: First Name = 1,
-        Last Name  = 2, Email = 3, Note = 4"
-        something.update = gets.chomp
-        person = Contact.update
-        else
-          return nil
+     Contact.all.each do |contact|
+       if contact.id ==  id.to_i
+         puts "Enter an attribute to modify: First Name = 1,
+         Last Name  = 2, Email = 3, Note = 4"
+         attribute_to_update = gets.chomp
+         puts "Enter updated info"
+         updated_value = gets.chomp
+         contact.update(attribute_to_update, updated_value)
+         puts "Contact updated!"
         end
       end
   end
 
-  def delete_contact_being_passed_in
-    puts "Enter the id of a contact to delete: "
-    id = gets.chomp
+  def delete_contact
+    id = get_id
+    contact = Contact.find(id)
+    contact.delete
+    puts "#{contact.first_name} #{contact.last_name} deleted."
   end
 
   def display_all_contacts
-    return Contact.all
+    puts "Contacts:"
+    puts Contact.all
   end
 
   def search_by_attribute
@@ -83,8 +84,5 @@ class CRM
 
 end
 
-malcolm = Contact.create("malcom", "mclure", "emailmemail", "notesnotesnotes")
-Contact.all
-Contact.all.each do |id|
-  puts id.first_name
-end
+a_crm_app = CRM.new
+a_crm_app.main_menu

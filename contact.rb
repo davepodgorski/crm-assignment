@@ -1,4 +1,3 @@
-require "./crm.rb"
 class Contact
 
   @@contacts = []
@@ -132,6 +131,3 @@ class Contact
   # Feel free to add other methods here, if you need them.
 
 end
-
-dave = Contact.create("dave", "podgorski", "email", "note")
-puts dave
