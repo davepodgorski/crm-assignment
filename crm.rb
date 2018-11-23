@@ -81,7 +81,9 @@ class CRM
   def search_by_attribute
     puts "Select an attribute to search by: "
     attribute_to_search = gets.chomp
-    
+    puts "Enter name, email, or note"
+    value_to_search = gets.chomp
+    puts Contact.find_by(attribute_to_search, value_to_search)
   end
 
 
