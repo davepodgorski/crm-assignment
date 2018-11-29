@@ -13,6 +13,11 @@ get '/' do
   redirect to ('/home')
 end
 
+# get '/contacts/:id' do
+#   contact = params[:id]
+#   @contacts = Contact.find(id)
+# end
+
 get '/contacts' do
   @contacts = Contact.all
   erb :contacts
