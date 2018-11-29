@@ -102,7 +102,3 @@ end
   end
 
 end
-
-
-
-Collapse 
