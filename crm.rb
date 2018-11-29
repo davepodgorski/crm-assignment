@@ -1,7 +1,14 @@
-require "./contact.rb"
-
+require_relative 'contact'
+require 'sinatra'
 class CRM
 
+  get '/home' do
+    erb :index
+  end
+
+  get '/' do
+    redirect to ('/home')
+  end
 
   def main_menu
     while true # repeat indefinitely
