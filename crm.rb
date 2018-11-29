@@ -1,12 +1,21 @@
 require_relative 'contact'
 require 'sinatra'
 
+# after do
+#   ActiveRecord::Base.connection.close
+# end
+
 get '/home' do
   erb :index
 end
 
 get '/' do
   redirect to ('/home')
+end
+
+get '/contacts' do
+  @contacts = Contact.all
+  erb :contacts
 end
 
 # class CRM
@@ -100,3 +109,7 @@ end
 #
 # a_crm_app = CRM.new
 # a_crm_app.main_menu
+#
+# after do
+#   ActiveRecord::Base.connection.close
+# end
