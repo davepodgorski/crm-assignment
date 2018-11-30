@@ -6,12 +6,11 @@
 
 
   <% @contacts.each do |contact| %>
-    <ul>
-        <li><%=contact.first_name%>
-        <%=contact.last_name%>
-        <%=contact.email%>
-        <%=contact.id%>
-      </li>
-    </ul>
+
+  <li class="contact">
+      <a href= "/contacts/<%= contact.id %>"><h2><%=contact.first_name%> <%=contact.last_name%> (<%=contact.email%>)</h2></a>
+      <a href="#">Edit</a> | <a href="#">Delete</a>
+  </li>
+
   <% end %>
 </ul>
