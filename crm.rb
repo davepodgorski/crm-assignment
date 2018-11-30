@@ -23,6 +23,13 @@ get '/contacts' do
   erb :contacts
 end
 
+get '/contacts/:id' do
+  @contact = Contact.find_by({id: params[:id].to_i})
+  erb :show_contact
+  end
+  # instructions for how to handle requests to this route will go here
+
+
 # class CRM
 #
 #
